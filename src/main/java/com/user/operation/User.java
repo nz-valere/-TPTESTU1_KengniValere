@@ -1,3 +1,5 @@
+package com.user.operation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class User {
     public void delete(int id) {
         boolean removed = users.removeIf(user -> user.getId() == id);
         if (!removed) {
-            throw new DeletionInvalidException("User with ID " + id + " not found.");
+            throw new DeletionInvalidException("com.user.operation.User with ID " + id + " not found.");
         }
     }
 
@@ -51,7 +53,7 @@ public class User {
         return users.stream()
                 .filter(user -> user.getId() == id)
                 .findFirst()
-                .orElseThrow(() -> new DeletionInvalidException("User with ID " + id + " not found."));
+                .orElseThrow(() -> new DeletionInvalidException("com.user.operation.User with ID " + id + " not found."));
     }
 
 
@@ -69,6 +71,25 @@ public class User {
         public DeletionInvalidException(String message) {
             super(message);
         }
+    }
+
+    public static double analyseSoldeGeneral() {
+        double totalBalance = users.stream().mapToDouble(User::getBalancePersonnel).sum();
+        if (totalBalance < 0) {
+            throw new NegativeGeneralBalanceException("Total balance is negative: " + totalBalance);
+        }
+        return totalBalance;
+    }
+
+    public class NegativeGeneralBalanceException extends RuntimeException {
+        public NegativeGeneralBalanceException(String message) {
+            super(message);
+        }
+    }
+
+    public static User getRichestUser() {
+        return users.stream().max(Comparator.comparingDouble(User::getBalancePersonnel))
+                .orElseThrow(() -> new RuntimeException("No users found"));
     }
 
 
