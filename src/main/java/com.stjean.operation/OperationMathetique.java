@@ -1,5 +1,8 @@
 package com.stjean.operation;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class OperationMathetique {
     public boolean estPositif(int nombre) {
         return nombre > 0;
@@ -15,5 +18,12 @@ public class OperationMathetique {
         }
         return result;
     }
+
+    public Integer[] sort(Integer[] lists) {
+        Arrays.sort(lists, Collections.reverseOrder());
+        return lists;
+    }
+
+
 
 }
