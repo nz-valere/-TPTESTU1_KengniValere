@@ -41,4 +41,11 @@ public class TestOperationMathematique {
         assertThrows(IllegalParamISIException.class, () -> op.factorial(-5));
     }
 
+    @Test
+    public void testMaxNumba() {
+        OperationMathematique op = new OperationMathematique();
+        double[] values = {1.2, 3.4, 2.2, -1.5};
+        assertEquals(3.4, op.maxNumba(values), 0.001);
+    }
+
 }
