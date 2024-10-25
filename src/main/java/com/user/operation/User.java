@@ -1,3 +1,5 @@
+package com.user.operation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,9 @@ public class User {
     private String phone;
     private String city;
     private double balancePersonnel;
+
+    public User(int i, String johnDoe, int i1, String s, String s1, String city, double v) {
+    }
 
     public int getId() {
         return id;
@@ -28,7 +33,7 @@ public class User {
 
     public static ArrayList<User> users = new ArrayList<>();
 
-    public void add(User user) {
+    public static void add(User user) {
         if (isValidEmail(user.getEmail())) {
             users.add(user);
         } else {
