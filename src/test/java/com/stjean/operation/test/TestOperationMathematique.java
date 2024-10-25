@@ -5,6 +5,7 @@ package com.stjean.operation.test;
 //import org.junit.jupiter.api.Test;
 
 
+import com.stjean.operation.IllegalParamISIException;
 import com.stjean.operation.OperationMathematique;
 import org.testng.annotations.Test;
 
@@ -32,6 +33,12 @@ public class TestOperationMathematique {
         Integer[] unsorted = {3, 1, 4, 1, 5};
         Integer[] expected = {5, 4, 3, 1, 1};
         assertArrayEquals(expected, op.sort(unsorted));
+    }
+
+    @Test
+    public void testFactorialNegativeException() {
+        OperationMathematique op = new OperationMathematique();
+        assertThrows(IllegalParamISIException.class, () -> op.factorial(-5));
     }
 
 }
