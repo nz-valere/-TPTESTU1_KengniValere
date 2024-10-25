@@ -10,7 +10,7 @@ public class OperationMathetique {
 
     public int factorial(int nombre) {
         if (nombre < 0) {
-            throw new IllegalArgumentException("Number must be non-negative.");
+            throw new IllegalParamISIException("Number must be non-negative.");
         }
         int result = 1;
         for (int i = 1; i <= nombre; i++) {
@@ -18,6 +18,7 @@ public class OperationMathetique {
         }
         return result;
     }
+
 
     public Integer[] sort(Integer[] lists) {
         Arrays.sort(lists, Collections.reverseOrder());
