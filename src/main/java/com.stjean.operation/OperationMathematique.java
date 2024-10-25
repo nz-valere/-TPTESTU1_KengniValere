@@ -24,5 +24,4 @@ public class OperationMathematique {
         return lists;
     }
 
-
 }

@@ -25,4 +25,13 @@ public class TestOperationMathematique {
         assertEquals(1, op.factorial(0));
         assertEquals(120, op.factorial(5));
     }
+
+    @Test
+    public void testSort() {
+        OperationMathematique op = new OperationMathematique();
+        Integer[] unsorted = {3, 1, 4, 1, 5};
+        Integer[] expected = {5, 4, 3, 1, 1};
+        assertArrayEquals(expected, op.sort(unsorted));
+    }
+
 }
